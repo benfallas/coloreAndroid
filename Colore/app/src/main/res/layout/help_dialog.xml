@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
+
+
+        <TextView
+            android:text="OverView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright" />
+
+        <TextView
+            android:text="Colore's main goal is to stimulate the brain of the player by training the user's brain to remember colors. The main logic is to remember colors and click them in the order that they were seen!!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/frontUI"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:lineSpacingExtra="8sp"
+            android:textColor="@android:color/holo_blue_bright" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/backgroundColor"/>
+
+        <TextView
+            android:text="Start a Game:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mainscreen"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/backgroundColor"/>
+
+        <TextView
+            android:text="Level Screen: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="Once at the level screen, the player will view a list of colors. REMEMBER THE ORDER!! For example: Blue, Green, Red."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:lineSpacingExtra="8sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/backgroundColor"/>
+
+        <TextView
+            android:text="Board Screen:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="The Board Screen consists of a 3X3 board full of colors!! The colors are a mixture of all the colors listed in the Level screen. The players goal is to click on the colors in the order that they were displayed. Given the previous example with the list 'Blue, Green, Red' the goal would be to click all Blue buttons, then proceed with all Green button and finally all Red buttons."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:lineSpacingExtra="8sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/backgroundColor"/>
+
+        <TextView
+            android:text="Game Over: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textAlignment="center" />
+        <TextView
+            android:text="If the color clicked on in the Board Screen is not the next color in the sequence, the Game Over screen will be displayed. The Game Over screen will show the players level reached, current score, highest score."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/frontUI"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp" />
+
+        <Button
+            android:text="Okay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/id__okay_button"
+            style="@style/Base.Widget.AppCompat.Button.Colored" />
+    </LinearLayout>
+</ScrollView>
