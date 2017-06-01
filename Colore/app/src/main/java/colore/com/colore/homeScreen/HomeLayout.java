@@ -38,7 +38,7 @@ public class HomeLayout {
 
     @OnClick(R.id.id__play_button)
     void onPlayButtonClicked() {
-        Log.d(TAG, "PlayButtonClicked");
+        mHomeLayoutListener.onPlayButtonClicked();
     }
 
     @OnClick(R.id.id__help_button)
@@ -48,5 +48,6 @@ public class HomeLayout {
 
     interface HomeLayoutListener {
         void onHelpButtonClicked();
+        void onPlayButtonClicked();
     }
 }
