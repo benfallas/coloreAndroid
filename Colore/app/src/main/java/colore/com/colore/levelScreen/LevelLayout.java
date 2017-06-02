@@ -2,10 +2,6 @@ package colore.com.colore.levelScreen;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,20 +10,24 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import colore.com.colore.R;
 
-/**
- * Created by benitosanchez on 5/31/17.
- */
 public class LevelLayout {
 
     private LevelActivity mLevelActivity;
+    private LevelLayoutListener mLevelLayoutListener;
 
     @BindView(R.id.list_buttons) LinearLayout mListButtons;
     @BindView(R.id.id__level) TextView mLevelTitle;
+    @BindView(R.id.id__play_button) Button mPlayButton;
 
-    public LevelLayout(@NonNull LevelActivity levelActivity) {
+    public LevelLayout(
+            @NonNull LevelActivity levelActivity,
+            @NonNull LevelLayoutListener listener) {
         mLevelActivity = levelActivity;
+        mLevelLayoutListener = listener;
+
         mLevelActivity.setContentView(R.layout.activity_level);
         ButterKnife.bind(this, mLevelActivity);
     }
@@ -40,5 +40,14 @@ public class LevelLayout {
             button.setBackgroundColor(Color.parseColor(buttonColors.get(i)));
             mListButtons.addView(button);
         }
+    }
+
+    @OnClick(R.id.id__play_button)
+    void onPlayButtonClicked() {
+        mLevelLayoutListener.onPlayButtonClicked();
+    }
+
+    interface LevelLayoutListener {
+        void onPlayButtonClicked();
     }
 }

@@ -15,8 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".homeScreen.HomeActivity"></activity>
-        <activity android:name=".levelScreen.LevelActivity"></activity>
+        <activity android:name=".homeScreen.HomeActivity" />
+        <activity android:name=".levelScreen.LevelActivity" />
+        <activity android:name=".boardGame.BoardActivity"></activity>
     </application>
 
 </manifest>

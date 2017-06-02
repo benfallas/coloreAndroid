@@ -3,10 +3,6 @@ package colore.com.colore.modules;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by benitosanchez on 5/31/17.
- */
-
 public class LevelSequence {
 
     private static LevelSequence mLevelSequence;
@@ -56,5 +52,9 @@ public class LevelSequence {
             }
         }
         return mSequenceColors;
+    }
+
+    public void reset() {
+        mLevelSequence = null;
     }
 }

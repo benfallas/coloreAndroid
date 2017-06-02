@@ -1,23 +1,23 @@
-package colore.com.colore.levelScreen;
+package colore.com.colore.boardGame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import colore.com.colore.R;
 
-public class LevelActivity extends AppCompatActivity {
+public class BoardActivity extends AppCompatActivity {
 
-    private LevelController mLevelController;
+    private BoardController mBoardController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLevelController = new LevelController(this);
+        mBoardController = new BoardController(this);
     }
 
     @Override
     public void onBackPressed() {
-        mLevelController.onBackPressed();
+        mBoardController.onBackPressed();
         super.onBackPressed();
     }
 }
