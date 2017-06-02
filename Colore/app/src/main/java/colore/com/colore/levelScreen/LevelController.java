@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import colore.com.colore.boardGame.BoardActivity;
+import colore.com.colore.homeScreen.HomeActivity;
 import colore.com.colore.modules.LevelSequence;
 
 public class LevelController implements LevelLayout.LevelLayoutListener {
@@ -25,6 +26,7 @@ public class LevelController implements LevelLayout.LevelLayoutListener {
     public void onPlayButtonClicked() {
         Intent intent = new Intent(mLevelActivity, BoardActivity.class);
         mLevelActivity.startActivity(intent);
+        mLevelActivity.finish();
     }
 
     public void onBackPressed() {

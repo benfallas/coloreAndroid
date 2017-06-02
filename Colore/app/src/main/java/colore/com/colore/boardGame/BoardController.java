@@ -1,13 +1,15 @@
 package colore.com.colore.boardGame;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.v4.widget.DrawerLayout;
+import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
+import colore.com.colore.gameOver.GameOverActivity;
+import colore.com.colore.homeScreen.HomeActivity;
+import colore.com.colore.levelScreen.LevelActivity;
 import colore.com.colore.modules.BoardGameManager;
+import colore.com.colore.modules.LevelSequence;
 
 public class BoardController
         implements BoardLayout.BoardLayoutListener,
@@ -17,11 +19,14 @@ public class BoardController
     private BoardLayout mBoardLayout;
 
     private BoardGameManager mBoardGameManager;
+    private LevelSequence mLevelSequence;
 
     public BoardController(BoardActivity boardActivity) {
         mBoardActivity = boardActivity;
         mBoardLayout = new BoardLayout(mBoardActivity, this);
         mBoardGameManager = BoardGameManager.getBoardGameManager(this);
+        mLevelSequence = LevelSequence.initLevelSequence();
+
         mBoardGameManager.initBoardGame();
 
         mBoardLayout.setButtonColors(mBoardGameManager.getBoardColors());
@@ -29,6 +34,8 @@ public class BoardController
 
     public void onBackPressed() {
         mBoardGameManager.reset();
+        Intent intent = new Intent(mBoardActivity, HomeActivity.class);
+        mBoardActivity.startActivity(intent);
     }
 
     @Override
@@ -36,14 +43,24 @@ public class BoardController
         String backgroundColor = (String) button.getTag();
         if (backgroundColor != "#FFFFFF") {
             button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            button.setTag("#FFFFFF");
             if (!mBoardGameManager.isTop(backgroundColor)) {
-                Toast.makeText(mBoardActivity, "OVER", Toast.LENGTH_SHORT).show();
+                mBoardGameManager.reset();
+                Intent intent = new Intent(mBoardActivity, GameOverActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("gameOver", "0");
+                intent.putExtras(bundle);
+                mBoardActivity.startActivity(intent);
+                mBoardActivity.finish();
             }
         }
     }
 
     @Override
-    public void onGameCompleted() {
-        Toast.makeText(mBoardActivity, "Completed", Toast.LENGTH_SHORT).show();
+    public void onLevelCompleted() {
+        mBoardGameManager.increaseLevel();
+        Intent intent = new Intent(mBoardActivity, LevelActivity.class);
+        mBoardActivity.startActivity(intent);
+        mBoardActivity.finish();
     }
 }

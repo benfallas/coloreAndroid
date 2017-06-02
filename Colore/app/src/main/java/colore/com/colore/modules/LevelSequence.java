@@ -57,4 +57,9 @@ public class LevelSequence {
     public void reset() {
         mLevelSequence = null;
     }
+
+    public void increaseLevel() {
+        mLevel++;
+        mSequenceColors = new ArrayList<>();
+    }
 }
