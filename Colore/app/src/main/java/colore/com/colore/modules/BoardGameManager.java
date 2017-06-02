@@ -1,28 +1,35 @@
 package colore.com.colore.modules;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class BoardGameManager {
 
     private static BoardGameManager mBoardGameManager;
+    private static BoardGameManagerListener mBoardGameManagerListener;
 
     private LevelSequence mLevelSequence;
     private ArrayList<String> mSequenceColors;
     private ArrayList<String> mBoardColors;
     private ArrayList<Integer> mSequenceCounter;
 
+    int topColor;
 
     private BoardGameManager() {
         mLevelSequence = LevelSequence.initLevelSequence();
         mSequenceColors = mLevelSequence.getSequenceColors();
         mBoardColors = new ArrayList<>();
         mSequenceCounter = new ArrayList<>();
+        topColor = 0;
     }
 
-    public static BoardGameManager getBoardGameManager() {
+    public static BoardGameManager getBoardGameManager(
+            @NonNull BoardGameManagerListener boardGameManagerListener) {
         if (mBoardGameManager == null) {
             mBoardGameManager = new BoardGameManager();
+            mBoardGameManagerListener = boardGameManagerListener;
         }
 
         return mBoardGameManager;
@@ -36,6 +43,25 @@ public class BoardGameManager {
 
     public ArrayList<String> getBoardColors() {
         return mBoardColors;
+    }
+
+    public boolean isTop(String color) {
+        boolean isTop;
+
+        if (mSequenceColors.get(topColor) == color) {
+            mSequenceCounter.set(topColor, mSequenceCounter.get(topColor) - 1);
+            if (mSequenceCounter.get(topColor) == 0) {
+                topColor++;
+                if (mSequenceCounter.size() == topColor) {
+                    mBoardGameManagerListener.onGameCompleted();
+                }
+            }
+            isTop = true;
+        } else {
+            isTop = false;
+        }
+
+        return isTop;
     }
 
     private void getRemainingColors() {
@@ -83,5 +109,9 @@ public class BoardGameManager {
     public void reset() {
         mBoardGameManager = null;
 
+    }
+
+    public interface BoardGameManagerListener {
+        void onGameCompleted();
     }
 }
