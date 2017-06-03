@@ -3,7 +3,6 @@ package colore.com.colore.gameOver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import colore.com.colore.homeScreen.HomeActivity;
 import colore.com.colore.modules.LevelSequence;
@@ -24,7 +23,7 @@ public class GameOverController implements GameOverLayout.GameOverLayoutListener
         String gaveOver = bundle.getString("gameOver");
         mGameOverLayout.setLayout(gaveOver, mLevelSequence.getLevel());
 
-
+        mLevelSequence.reset();
     }
 
     public void onBackPressed() {

@@ -1,5 +1,7 @@
 package colore.com.colore.modules;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,21 +10,21 @@ public class LevelSequence {
     private static LevelSequence mLevelSequence;
     private ArrayList<String> mColors;
     private static ArrayList<String> mSequenceColors;
-    private int mLevel;
+    private static int mLevel;
 
     private LevelSequence() {
         mColors = new ArrayList<>();
         mSequenceColors = new ArrayList<>();
 
-        mColors.add("#EE7AE9");
-        mColors.add("#BEBEBE");
-        mColors.add("#8B4789");
-        mColors.add("#BF3EFF");
-        mColors.add("#F5F5F5");
-        mColors.add("#FFD700");
-        mColors.add("#8B6914");
-        mColors.add("#EE0000");
-        mColors.add("#00EEEE");
+        mColors.add("#ffff00");
+        mColors.add("#ff8c00");
+        mColors.add("#ff0000");
+        mColors.add("#00ff0c");
+        mColors.add("#000000");
+        mColors.add("#8300ff");
+        mColors.add("#00FFFF");
+        mColors.add("#800080");
+        mColors.add("#0000FF");
 
         mLevel = 0;
     }
@@ -61,5 +63,6 @@ public class LevelSequence {
     public void increaseLevel() {
         mLevel++;
         mSequenceColors = new ArrayList<>();
+        Log.d("LEVELSEQUENCE: " , mLevel + "");
     }
 }
