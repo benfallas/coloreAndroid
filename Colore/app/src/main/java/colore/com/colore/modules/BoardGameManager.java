@@ -11,7 +11,8 @@ public class BoardGameManager {
     private final static String TAG = "BoardGameManager";
 
     private static BoardGameManager mBoardGameManager;
-    private static BoardGameManagerListener mBoardGameManagerListener;
+    private BoardGameManagerListener mBoardGameManagerListener;
+    private static int mPoints;
 
     private LevelSequence mLevelSequence;
     private ArrayList<String> mSequenceColors;
@@ -25,12 +26,16 @@ public class BoardGameManager {
     public static BoardGameManager getBoardGameManager() {
         if (mBoardGameManager == null) {
             mBoardGameManager = new BoardGameManager();
+            mPoints = 0;
         }
 
         return mBoardGameManager;
     }
 
     public void initBoardGame(@NonNull BoardGameManagerListener boardGameManagerListener) {
+        if (mBoardGameManager == null) {
+
+        }
         mBoardGameManagerListener = boardGameManagerListener;
         mLevelSequence = LevelSequence.initLevelSequence();
         mSequenceColors = mLevelSequence.getSequenceColors();
@@ -57,12 +62,16 @@ public class BoardGameManager {
                 }
             }
             isTop = true;
+            mPoints++;
+            Log.d("TEST", mPoints + "");
         } else {
             isTop = false;
         }
 
         return isTop;
     }
+
+    public int getPoints() { return mPoints; }
 
     private void getRemainingColors() {
 
@@ -116,7 +125,6 @@ public class BoardGameManager {
 
     public void reset() {
         mBoardGameManager = null;
-
     }
 
     public void increaseLevel() {

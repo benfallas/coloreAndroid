@@ -9,6 +9,7 @@ import colore.com.colore.gameOver.GameOverActivity;
 import colore.com.colore.levelScreen.LevelActivity;
 import colore.com.colore.modules.BoardGameManager;
 import colore.com.colore.modules.LevelSequence;
+import colore.com.colore.modules.MasterModule;
 
 public class BoardController
         implements BoardLayout.BoardLayoutListener,
@@ -19,12 +20,14 @@ public class BoardController
 
     private BoardGameManager mBoardGameManager;
     private LevelSequence mLevelSequence;
+    private MasterModule mMasterModule;
 
     public BoardController(BoardActivity boardActivity) {
         mBoardActivity = boardActivity;
         mBoardLayout = new BoardLayout(mBoardActivity, this);
         mBoardGameManager = BoardGameManager.getBoardGameManager();
         mLevelSequence = LevelSequence.initLevelSequence();
+        mMasterModule = MasterModule.getMasterModule(mBoardActivity);
 
         mBoardGameManager.initBoardGame(this);
 
@@ -61,10 +64,15 @@ public class BoardController
     }
 
     private void gameOver(String value) {
+        if (mMasterModule.getScore() < mBoardGameManager.getPoints()) {
+            mMasterModule.updateScore(mBoardGameManager.getPoints());
+        }
+
         mBoardGameManager.reset();
         Intent intent = new Intent(mBoardActivity, GameOverActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("gameOver", value);
+        bundle.putInt("points", mBoardGameManager.getPoints());
         intent.putExtras(bundle);
         mBoardActivity.startActivity(intent);
         mBoardActivity.finish();

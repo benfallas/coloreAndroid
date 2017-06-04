@@ -18,6 +18,8 @@ public class GameOverLayout {
     @BindView(R.id.thinkingEmoji) ImageView emoji;
     @BindView(R.id.id__home_icon) ImageView mHomeIcon;
     @BindView(R.id.id__level_description) TextView mLevelDescription;
+    @BindView(R.id.id__score) TextView mScore;
+    @BindView(R.id.id__highest_score) TextView mHighestScore;
 
     public GameOverLayout(
             @NonNull GameOverActivity gameOverActivity,
@@ -51,10 +53,11 @@ public class GameOverLayout {
         mGameOverLayoutListener.onHomeIconClicked();
     }
 
-    public void setLayout(String gaveOver, int level) {
+    public void setLayout(String gaveOver, int level, int points, int highestPoint) {
         setEmoji(gaveOver);
-
+        mScore.setText("Game Score: " + points);
         mLevelDescription.setText("Last Level Reached: " + (level + 1));
+        mHighestScore.setText("Highest Score: " + highestPoint);
     }
 
     interface GameOverLayoutListener {
