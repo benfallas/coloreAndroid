@@ -1,10 +1,8 @@
 package colore.com.colore.gameOver;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import colore.com.colore.homeScreen.HomeActivity;
 import colore.com.colore.modules.LevelSequence;
 
 public class GameOverController implements GameOverLayout.GameOverLayoutListener {
@@ -26,18 +24,10 @@ public class GameOverController implements GameOverLayout.GameOverLayoutListener
         mLevelSequence.reset();
     }
 
-    public void onBackPressed() {
-        goHome();
-    }
+    public void onBackPressed() { goHome(); }
 
-    private void goHome() {
-        Intent intent = new Intent(mGameOverActivity, HomeActivity.class);
-        mGameOverActivity.startActivity(intent);
-        mGameOverActivity.finish();
-    }
+    private void goHome() { mGameOverActivity.finish(); }
 
     @Override
-    public void onHomeIconClicked() {
-        goHome();
-    }
+    public void onHomeIconClicked() { goHome(); }
 }

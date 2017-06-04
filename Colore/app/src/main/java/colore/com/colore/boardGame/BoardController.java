@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import colore.com.colore.gameOver.GameOverActivity;
-import colore.com.colore.homeScreen.HomeActivity;
 import colore.com.colore.levelScreen.LevelActivity;
 import colore.com.colore.modules.BoardGameManager;
 import colore.com.colore.modules.LevelSequence;
@@ -24,18 +23,17 @@ public class BoardController
     public BoardController(BoardActivity boardActivity) {
         mBoardActivity = boardActivity;
         mBoardLayout = new BoardLayout(mBoardActivity, this);
-        mBoardGameManager = BoardGameManager.getBoardGameManager(this);
+        mBoardGameManager = BoardGameManager.getBoardGameManager();
         mLevelSequence = LevelSequence.initLevelSequence();
 
-        mBoardGameManager.initBoardGame();
+        mBoardGameManager.initBoardGame(this);
 
         mBoardLayout.setButtonColors(mBoardGameManager.getBoardColors());
     }
 
     public void onBackPressed() {
         mBoardGameManager.reset();
-        Intent intent = new Intent(mBoardActivity, HomeActivity.class);
-        mBoardActivity.startActivity(intent);
+        mBoardActivity.finish();
     }
 
     @Override

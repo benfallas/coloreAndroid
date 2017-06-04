@@ -1,7 +1,6 @@
 package colore.com.colore.homeScreen;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.Button;
 
@@ -9,10 +8,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import colore.com.colore.R;
-
-/**
- * Created by benitosanchez on 5/31/17.
- */
 
 public class HelpDialog extends Dialog {
 

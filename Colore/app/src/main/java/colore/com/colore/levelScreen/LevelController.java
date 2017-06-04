@@ -31,5 +31,6 @@ public class LevelController implements LevelLayout.LevelLayoutListener {
 
     public void onBackPressed() {
         mLevelSequence.reset();
+        mLevelActivity.finish();
     }
 }

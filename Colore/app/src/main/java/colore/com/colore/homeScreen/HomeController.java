@@ -13,7 +13,6 @@ public class HomeController
     private HomeActivity mHomeActivity;
     private HomeLayout mHomeLayout;
     private HelpDialog mHelpDialog;
-    private LevelSequence mLevelSequence;
 
     public HomeController(
             @NonNull HomeActivity homeActivity) {

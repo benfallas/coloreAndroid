@@ -1,9 +1,7 @@
 package colore.com.colore.gameOver;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import colore.com.colore.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class GameOverActivity extends AppCompatActivity {
 

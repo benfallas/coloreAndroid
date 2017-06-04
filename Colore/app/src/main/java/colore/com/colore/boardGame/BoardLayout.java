@@ -3,7 +3,6 @@ package colore.com.colore.boardGame;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.widget.Button;
-import android.widget.GridView;
 
 import java.util.ArrayList;
 

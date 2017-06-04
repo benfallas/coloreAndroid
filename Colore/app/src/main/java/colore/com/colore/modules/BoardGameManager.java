@@ -22,17 +22,16 @@ public class BoardGameManager {
 
     private BoardGameManager() { }
 
-    public static BoardGameManager getBoardGameManager(
-            @NonNull BoardGameManagerListener boardGameManagerListener) {
+    public static BoardGameManager getBoardGameManager() {
         if (mBoardGameManager == null) {
             mBoardGameManager = new BoardGameManager();
-            mBoardGameManagerListener = boardGameManagerListener;
         }
 
         return mBoardGameManager;
     }
 
-    public void initBoardGame() {
+    public void initBoardGame(@NonNull BoardGameManagerListener boardGameManagerListener) {
+        mBoardGameManagerListener = boardGameManagerListener;
         mLevelSequence = LevelSequence.initLevelSequence();
         mSequenceColors = mLevelSequence.getSequenceColors();
         topColor = 0;
