@@ -39,9 +39,9 @@ public class BoardController
     @Override
     public void onButtonClicked(Button button) {
         String backgroundColor = (String) button.getTag();
-        if (backgroundColor != "#FFFFFF") {
-            button.setBackgroundColor(Color.parseColor("#FFFFFF"));
-            button.setTag("#FFFFFF");
+        if (backgroundColor != "#303030") {
+            button.setBackgroundColor(Color.parseColor("#303030"));
+            button.setTag("#303030");
             if (!mBoardGameManager.isTop(backgroundColor)) {
                 gameOver("0");
             }

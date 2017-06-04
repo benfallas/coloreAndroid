@@ -20,7 +20,7 @@ public class LevelSequence {
         mColors.add("#ff8c00");
         mColors.add("#ff0000");
         mColors.add("#00ff0c");
-        mColors.add("#000000");
+        mColors.add("#FFFFFF");
         mColors.add("#8300ff");
         mColors.add("#00FFFF");
         mColors.add("#800080");

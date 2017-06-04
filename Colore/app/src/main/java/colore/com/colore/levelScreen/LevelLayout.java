@@ -18,6 +18,7 @@ public class LevelLayout {
 
     private LevelActivity mLevelActivity;
     private LevelLayoutListener mLevelLayoutListener;
+    private CountDownTimer mCountDownTimer;
 
     @BindView(R.id.list_buttons) LinearLayout mListButtons;
     @BindView(R.id.id__level) TextView mLevelTitle;
@@ -46,11 +47,12 @@ public class LevelLayout {
 
     @OnClick(R.id.id__play_button)
     void onPlayButtonClicked() {
+        mCountDownTimer.cancel();
         mLevelLayoutListener.onPlayButtonClicked();
     }
 
     public void showTime(int mSecondsCountDownForLevel) {
-        new CountDownTimer(mSecondsCountDownForLevel * 1000, 1000) {
+        mCountDownTimer = new CountDownTimer(mSecondsCountDownForLevel * 1000, 1000) {
 
             @Override
             public void onTick(long l) {
@@ -61,7 +63,9 @@ public class LevelLayout {
             public void onFinish() {
                 mLevelLayoutListener.onPlayButtonClicked();
             }
-        }.start();
+        };
+
+        mCountDownTimer.start();
     }
 
     interface LevelLayoutListener {

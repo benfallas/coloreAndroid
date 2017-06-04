@@ -31,7 +31,7 @@
     <TextView
         android:layout_above="@+id/id__play_button"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/button_height"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp"
         android:id="@+id/id__time_display"
@@ -43,7 +43,8 @@
     <Button
         android:text="Play"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/button_height"
+        android:textSize="@dimen/button_text_size_18"
         android:id="@+id/id__play_button"
         style="@style/Base.Widget.AppCompat.Button.Colored"
         android:layout_marginBottom="12dp"

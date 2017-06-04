@@ -2,14 +2,16 @@
     <string name="app_name">Colore</string>
     <string name="overview">Overview</string>
     <string name="overview_details">Colore\'s main goal is to stimulate the brain of the player by training the user\'s brain to remember colors. The main logic is to remember colors and click them in the order that they were seen!!</string>
-    <string name="new_game">Start a Game:</string>
-    <string name="level_screen">Level Screen:</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="level_screen">Level Screen</string>
     <string name="level_screen_description">Once at the level screen, the player will view a list of colors. REMEMBER THE ORDER!! For example: Blue, Green, Red.</string>
     <string name="level_screen_description_two">When ready, click on the play button.</string>
-    <string name="board_screen">Board Screen:</string>
+    <string name="board_screen">Board Screen</string>
     <string name="board_screen_details">The Board Screen consists of a 3X3 board full of colors!! The colors are a mixture of all the colors listed in the Level screen. The goal is to click on the colors in the order that they were displayed. Given the previous example with the list \'Blue, Green, Red\' the goal would be to click ALL the  bluc colors first, then proceed with all Green colors and finally all Red ones.</string>
-    <string name="game_over">Game Over:</string>
+    <string name="game_over">Game Over</string>
     <string name="game_over_details">If the color clicked on in the Board Screen is not the next color in the sequence, the Game Over screen will be displayed. The Game Over screen will show the players level reached, current score, highest score.</string>
     <string name="got_id">Got it!</string>
     <string name="level_complete">If level is successfully completed, you will be taken to Level Screen with more colors!</string>
+    <string name="help">HELP</string>
+    <string name="colore">colore</string>
 </resources>
