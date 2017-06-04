@@ -26,7 +26,7 @@ public class LevelSequence {
         mColors.add("#800080");
         mColors.add("#0000FF");
 
-        mLevel = 0;
+        mLevel = 6;
     }
 
     public static LevelSequence initLevelSequence() {
@@ -63,6 +63,5 @@ public class LevelSequence {
     public void increaseLevel() {
         mLevel++;
         mSequenceColors = new ArrayList<>();
-        Log.d("LEVELSEQUENCE: " , mLevel + "");
     }
 }

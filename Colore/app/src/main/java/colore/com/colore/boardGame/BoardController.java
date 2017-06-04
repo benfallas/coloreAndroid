@@ -43,13 +43,7 @@ public class BoardController
             button.setBackgroundColor(Color.parseColor("#FFFFFF"));
             button.setTag("#FFFFFF");
             if (!mBoardGameManager.isTop(backgroundColor)) {
-                mBoardGameManager.reset();
-                Intent intent = new Intent(mBoardActivity, GameOverActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("gameOver", "0");
-                intent.putExtras(bundle);
-                mBoardActivity.startActivity(intent);
-                mBoardActivity.finish();
+                gameOver("0");
             }
         }
     }
@@ -57,7 +51,21 @@ public class BoardController
     @Override
     public void onLevelCompleted() {
         mBoardGameManager.increaseLevel();
-        Intent intent = new Intent(mBoardActivity, LevelActivity.class);
+        if (mLevelSequence.getLevel() < 7) {
+            Intent intent = new Intent(mBoardActivity, LevelActivity.class);
+            mBoardActivity.startActivity(intent);
+            mBoardActivity.finish();
+        } else {
+            gameOver("1");
+        }
+    }
+
+    private void gameOver(String value) {
+        mBoardGameManager.reset();
+        Intent intent = new Intent(mBoardActivity, GameOverActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("gameOver", value);
+        intent.putExtras(bundle);
         mBoardActivity.startActivity(intent);
         mBoardActivity.finish();
     }

@@ -54,7 +54,7 @@ public class GameOverLayout {
     public void setLayout(String gaveOver, int level) {
         setEmoji(gaveOver);
 
-        mLevelDescription.setText("Last Level Reached: " + level);
+        mLevelDescription.setText("Last Level Reached: " + (level + 1));
     }
 
     interface GameOverLayoutListener {
