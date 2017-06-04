@@ -14,4 +14,6 @@
     <string name="level_complete">If level is successfully completed, you will be taken to Level Screen with more colors!</string>
     <string name="help">HELP</string>
     <string name="colore">colore</string>
+    <string name="thinking_emoji">Thinking Emoji</string>
+    <string name="home_icon">Home icon</string>
 </resources>

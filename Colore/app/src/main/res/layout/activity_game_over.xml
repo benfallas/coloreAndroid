@@ -10,6 +10,7 @@
 
     <ImageView
         android:id="@+id/thinkingEmoji"
+        android:contentDescription="@string/thinking_emoji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
@@ -28,10 +29,11 @@
         android:textColor="@android:color/holo_blue_bright" />
 
     <ImageView
+        android:id="@+id/id__home_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/home_icon"
         android:src="@drawable/home"
-        android:id="@+id/id__home_icon"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="28dp" />
