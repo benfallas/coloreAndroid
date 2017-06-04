@@ -14,13 +14,31 @@ public class LevelController implements LevelLayout.LevelLayoutListener {
     private LevelLayout mLevelLayout;
     private LevelSequence mLevelSequence;
 
+    private final int BASE_TIME = 5;
+    private int mSecondsCountDownForLevel;
+
+
     public LevelController(@NonNull LevelActivity levelActivity) {
         mLevelActivity = levelActivity;
         mLevelLayout = new LevelLayout(mLevelActivity, this);
         mLevelSequence = LevelSequence.initLevelSequence();
         mLevelLayout.initListButtons(mLevelSequence.getSequenceColors(), mLevelSequence.getLevel());
+        initTimer();
     }
 
+    private void initTimer() {
+        if (mLevelSequence.getLevel() <= 2) {
+            mSecondsCountDownForLevel = BASE_TIME + (mLevelSequence.getLevel() - 1);
+        } else {
+            mSecondsCountDownForLevel = BASE_TIME + (mLevelSequence.getLevel() - 1) + log2((double)mLevelSequence.getLevel() - 1) + log2((double) mLevelSequence.getLevel() - 2);
+        }
+        Log.d("LOG: ", mSecondsCountDownForLevel+ "");
+        mLevelLayout.showTime(mSecondsCountDownForLevel);
+    }
+
+    private int log2(double num) {
+        return (int)(Math.log(num) / Math.log(2));
+    }
 
     @Override
     public void onPlayButtonClicked() {

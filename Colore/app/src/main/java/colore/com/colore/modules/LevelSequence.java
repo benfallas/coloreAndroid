@@ -26,7 +26,7 @@ public class LevelSequence {
         mColors.add("#800080");
         mColors.add("#0000FF");
 
-        mLevel = 6;
+        mLevel = 0;
     }
 
     public static LevelSequence initLevelSequence() {

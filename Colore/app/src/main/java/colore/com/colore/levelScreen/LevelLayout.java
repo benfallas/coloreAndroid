@@ -1,6 +1,7 @@
 package colore.com.colore.levelScreen;
 
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ public class LevelLayout {
     @BindView(R.id.list_buttons) LinearLayout mListButtons;
     @BindView(R.id.id__level) TextView mLevelTitle;
     @BindView(R.id.id__play_button) Button mPlayButton;
+    @BindView(R.id.id__time_display) TextView mTimeDisplay;
 
     public LevelLayout(
             @NonNull LevelActivity levelActivity,
@@ -45,6 +47,21 @@ public class LevelLayout {
     @OnClick(R.id.id__play_button)
     void onPlayButtonClicked() {
         mLevelLayoutListener.onPlayButtonClicked();
+    }
+
+    public void showTime(int mSecondsCountDownForLevel) {
+        new CountDownTimer(mSecondsCountDownForLevel * 1000, 1000) {
+
+            @Override
+            public void onTick(long l) {
+                mTimeDisplay.setText((l / 1000) + "");
+            }
+
+            @Override
+            public void onFinish() {
+                mLevelLayoutListener.onPlayButtonClicked();
+            }
+        }.start();
     }
 
     interface LevelLayoutListener {

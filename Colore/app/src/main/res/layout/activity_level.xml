@@ -28,6 +28,18 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_above="@+id/id__play_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/id__time_display"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:fontFamily="serif" />
+
     <Button
         android:text="Play"
         android:layout_width="match_parent"
